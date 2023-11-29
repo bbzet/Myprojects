@@ -11,11 +11,12 @@ weight = 0
 r = True
 while r:
     for _ in range(3):
-        while not r:
+        valid_input = False
+        while not valid_input:
             try:
                 kilometers1 = int(input("Enter the kilometer mark where the box can be buried: "))
                 if 1 <= kilometers1 <= 7:
-                    r = True
+                    valid_input = True
                 else:
                     print("Enter numbers between 1 to 7.")
             except ValueError:
