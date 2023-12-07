@@ -144,3 +144,13 @@ def place_ships():
 
 
     return ar
+
+def inp(ar):
+    while True:
+        n = input("\nEnter the coordinates, for example: a 1: ")
+        n = n.split()
+        if len(n) != 2:
+            print("Enter only one letter and one digit!")
+        else:
+            a = n[0]
+            b = n[1]
