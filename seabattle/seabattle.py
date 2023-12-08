@@ -154,3 +154,23 @@ def inp(ar):
         else:
             a = n[0]
             b = n[1]
+            flag = True
+            if not b.isdigit():
+                print("Second coordinates must be a digit!")
+                flag = False
+            if 1 > int(b) or int(b) > 7:
+                print("Second coordinates must be in range 1-7")
+                flag = False
+            if not a.isalpha() or ord(a) >= 104 or ord(a) < 97:
+                print("First coordinates must be a letter in range a-g")
+                flag = False
+            else:
+                s1 = ord(a) - 97
+                s2 = int(b) - 1
+                if ar[s1][s2] == '+' or ar[s1][s2] == '*':
+                    print("These coordinates already atacked!")
+                else:
+                    if flag:
+                        break
+
+        return [ord(a) - 97, int(b) - 1]
