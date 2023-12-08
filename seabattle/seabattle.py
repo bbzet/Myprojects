@@ -1,4 +1,5 @@
 import random
+import os
 
 letters = "  1 2 3 4 5 6 7   "
 
@@ -144,7 +145,6 @@ def place_ships():
 
 
     return ar
-
 def inp(ar):
     while True:
         n = input("\nEnter the coordinates, for example: a 1: ")
@@ -158,13 +158,14 @@ def inp(ar):
             if not b.isdigit():
                 print("Second coordinates must be a digit!")
                 flag = False
-            if 1 > int(b) or int(b) > 7:
+            elif 1 > int(b) or int(b) > 7:
                 print("Second coordinates must be in range 1-7")
                 flag = False
-            if not a.isalpha() or ord(a) >= 104 or ord(a) < 97:
+            elif not a.isalpha() or ord(a) >= 104 or ord(a) < 97:
                 print("First coordinates must be a letter in range a-g")
-                flag = False
+                flag  = False
             else:
+
                 s1 = ord(a) - 97
                 s2 = int(b) - 1
                 if ar[s1][s2] == '+' or ar[s1][s2] == '*':
@@ -173,4 +174,16 @@ def inp(ar):
                     if flag:
                         break
 
-        return [ord(a) - 97, int(b) - 1]
+    return [ord(a) - 97, int(b) - 1]
+
+
+def isSunk2(ar, i, j):
+    if i > 0 and ar[i - 1][j] == '2':
+        return False
+    if i < 6 and ar[i + 1][j] == '2':
+        return False
+    if j > 0 and ar[i][j - 1] == '2':
+        return False
+    if j < 6 and ar[i][j + 1] == '2':
+        return False
+    return True
