@@ -187,3 +187,19 @@ def isSunk2(ar, i, j):
     if j < 6 and ar[i][j + 1] == '2':
         return False
     return True
+
+def isSunk3(ar, i, j):
+    if i > 0 and i < 6 and (ar[i - 1][j] == '3' or ar[i + 1][j] == '3'):
+        return False
+    if j > 0 and j < 6 and (ar[i][j - 1] == '3' or ar[i][j + 1] == '3'):
+        return False
+    if i > 1 and (ar[i - 1][j] == '3' or ar[i - 2][j] == '3'):
+        return False
+    if i < 5 and (ar[i + 1][j] == '3' or ar[i + 2][j] == '3'):
+        return False
+    if j > 1 and (ar[i][j - 1] == '3' or ar[i][j - 2] == '3'):
+        return False
+    if j < 5 and (ar[i][j + 1] == '3' or ar[i][j + 2] == '3'):
+        return False
+
+    return True
