@@ -213,3 +213,12 @@ for i in range(7):
     table.append(k)
 
 out_table(table)
+
+while True:
+    flag = Search(ar)
+    if flag:
+        break
+
+    lst = inp(ar)
+    i = lst[0]
+    j = lst[1]
