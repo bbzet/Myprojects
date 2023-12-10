@@ -222,3 +222,16 @@ while True:
     lst = inp(ar)
     i = lst[0]
     j = lst[1]
+
+   if ar[i][j] == '2':
+        ar[i][j] = '*'
+        table[i][j] = '*'
+        flag = isSunk2(ar, i, j)
+        if flag == False:
+            print("HIT")
+        else:
+            print("SUNK")
+    elif ar[i][j] == '3':
+        ar[i][j] = '*'
+        table[i][j] = '*'
+        flag = isSunk3(ar, i, j)s
