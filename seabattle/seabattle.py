@@ -203,3 +203,13 @@ def isSunk3(ar, i, j):
         return False
 
     return True
+
+ar = place_ships()
+table = []
+for i in range(7):
+    k = []
+    for j in range(7):
+        k.append('•')
+    table.append(k)
+
+out_table(table)
