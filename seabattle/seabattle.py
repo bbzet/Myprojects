@@ -4,12 +4,19 @@ import os
 letters = "  1 2 3 4 5 6 7   "
 
 name = input("Enter your name: ")
+
+
 def Search(ar):
     for i in range(len(ar)):
         for j in range(len(ar[i])):
             if ar[i][j] == '1' or ar[i][j] == '2' or ar[i][j] == '3':
                 return False
     return True
+
+
+def clear():
+    return os.system('cls')
+
 
 def out_table(ar):
     counter = 1
@@ -20,6 +27,7 @@ def out_table(ar):
         for j in i:
             print(j, end=' ')
         print()
+
 
 def place_ships():
     ar = []
@@ -143,8 +151,9 @@ def place_ships():
         if c1_ships == 4:
             break
 
-
     return ar
+
+
 def inp(ar):
     while True:
         n = input("\nEnter the coordinates, for example: a 1: ")
@@ -163,7 +172,7 @@ def inp(ar):
                 flag = False
             elif not a.isalpha() or ord(a) >= 104 or ord(a) < 97:
                 print("First coordinates must be a letter in range a-g")
-                flag  = False
+                flag = False
             else:
 
                 s1 = ord(a) - 97
@@ -188,6 +197,7 @@ def isSunk2(ar, i, j):
         return False
     return True
 
+
 def isSunk3(ar, i, j):
     if i > 0 and i < 6 and (ar[i - 1][j] == '3' or ar[i + 1][j] == '3'):
         return False
@@ -203,6 +213,7 @@ def isSunk3(ar, i, j):
         return False
 
     return True
+
 
 ar = place_ships()
 table = []
@@ -223,15 +234,34 @@ while True:
     i = lst[0]
     j = lst[1]
 
-   if ar[i][j] == '2':
+    if ar[i][j] == '2':
         ar[i][j] = '*'
         table[i][j] = '*'
         flag = isSunk2(ar, i, j)
         if flag == False:
+            os.system('cls')
             print("HIT")
         else:
+            os.system('cls')
             print("SUNK")
     elif ar[i][j] == '3':
         ar[i][j] = '*'
         table[i][j] = '*'
-        flag = isSunk3(ar, i, j)s
+        flag = isSunk3(ar, i, j)
+        if flag == False:
+            os.system('cls')
+            print("HIT")
+        else:
+            os.system('cls')
+            print("SUNK")
+    elif ar[i][j] == '1':
+        ar[i][j] = '*'
+        table[i][j] = '*'
+        os.system('cls')
+        print("SUNK")
+    else:
+        table[i][j] = "+"
+        os.system('cls')
+        print("MISS")
+
+    out_table(table)
